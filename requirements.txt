@@ -1,8 +1,11 @@
 scipy<=1.9.3
 autodp
+absl-py
 numpy
 deel-lip
 matplotlib
+ml_collections
 pandas
-tensorflow
+tensorflow<2.16
 tensorflow-datasets
+wandb

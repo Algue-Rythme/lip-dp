@@ -1,7 +1,5 @@
 setuptools
 pre-commit
-ml_collections
-absl-py
 pytest
 tox
 black
@@ -12,4 +10,3 @@ mkdocs-material
 mkdocstrings[python]
 mknotebooks
 bump2version
-wandb
