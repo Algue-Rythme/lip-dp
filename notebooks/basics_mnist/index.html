@@ -1,0 +1,1549 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/lipdp_logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.12">
+    
+    
+      
+        <title>Basics mnist - lipdp</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="dark" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mnist-tutorial" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="lipdp" class="md-header__button md-logo" aria-label="lipdp" data-md-component="logo">
+      
+  <img src="../../assets/lipdp_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            lipdp
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basics mnist
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="dark" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/deel-ai/<libname>" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deel-ai/<libname>
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="lipdp" class="md-nav__button md-logo" aria-label="lipdp" data-md-component="logo">
+      
+  <img src="../../assets/lipdp_logo.png" alt="logo">
+
+    </a>
+    lipdp
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/deel-ai/<libname>" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deel-ai/<libname>
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/layers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    deel.lipdp.layers module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/losses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    deel.lipdp.losses module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    deel.lipdp.model module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    deel.lipdp.pipeline module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/sensitivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    deel.lipdp.sensitivity module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_mnist.ipynb" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Demo 1: basic use on MNIST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced_cifar10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Demo 2: advanced use on CIFAR10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CONTRIBUTING/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#imports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imports
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Imports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lip-dp-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      lip-dp dependencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-dp-lipschitz-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup DP Lipschitz model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup DP Lipschitz model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loading-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading the data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-dp-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build the DP model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#train-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Train the model
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var requireJsScript = document.createElement('script');
+    requireJsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js';
+
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var jupyterWidgetsScript = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    jupyterWidgetsScript.src = widgetRendererSrc;
+
+    document.body.appendChild(requireJsScript);
+    document.body.appendChild(jupyterWidgetsScript);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="mnist-tutorial">Mnist tutorial<a class="headerlink" href="#mnist-tutorial" title="Permanent link">&para;</a></h1>
+<p>This notebook introduces the basics of usage of our library.</p>
+<h2 id="imports">Imports<a class="headerlink" href="#imports" title="Permanent link">&para;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The library is based on tensorflow.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="lip-dp-dependencies">lip-dp dependencies<a class="headerlink" href="#lip-dp-dependencies" title="Permanent link">&para;</a></h3>
+<p>The need a model <code>DP_Sequential</code> that handles the noisification of gradients. It is composed <code>layers</code> and trained with a loss found in <code>loss</code>. The model is initialized with the convenience function <code>DPParameters</code>. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">deel.lipdp</span> <span class="kn">import</span> <span class="n">layers</span>
+<span class="kn">from</span> <span class="nn">deel.lipdp</span> <span class="kn">import</span> <span class="n">losses</span>
+<span class="kn">from</span> <span class="nn">deel.lipdp.model</span> <span class="kn">import</span> <span class="n">DP_Sequential</span>
+<span class="kn">from</span> <span class="nn">deel.lipdp.model</span> <span class="kn">import</span> <span class="n">DPParameters</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <code>DP_Accountant</code> callback keeps track of <span class="arithmatex">\((\epsilon,\delta)\)</span>-DP values epoch after epoch. In practice we may be interested in reaching the maximum val_accuracy under privacy constraint <span class="arithmatex">\(\epsilon\)</span>: the convenience function <code>get_max_epochs</code> exactly does that by performing a dichotomy search over the number of epochs.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">deel.lipdp.model</span> <span class="kn">import</span> <span class="n">DP_Accountant</span>
+<span class="kn">from</span> <span class="nn">deel.lipdp.sensitivity</span> <span class="kn">import</span> <span class="n">get_max_epochs</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The framework requires a control of the maximum norm of inputs. This can be ensured with input clipping for example: <code>bound_clip_value</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">deel.lipdp.pipeline</span> <span class="kn">import</span> <span class="n">bound_clip_value</span>
+<span class="kn">from</span> <span class="nn">deel.lipdp.pipeline</span> <span class="kn">import</span> <span class="n">load_and_prepare_data</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="setup-dp-lipschitz-model">Setup DP Lipschitz model<a class="headerlink" href="#setup-dp-lipschitz-model" title="Permanent link">&para;</a></h2>
+<p>Here we apply the "global" strategy, with a noise multiplier <span class="arithmatex">\(2.5\)</span>. Note that for Mnist the dataset size is <span class="arithmatex">\(N=60,000\)</span>, and it is recommended that <span class="arithmatex">\(\delta&lt;\frac{1}{N}\)</span>. So we propose a value of <span class="arithmatex">\(\delta=10^{-5}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">dp_parameters</span> <span class="o">=</span> <span class="n">DPParameters</span><span class="p">(</span>
+    <span class="n">noisify_strategy</span><span class="o">=</span><span class="s2">&quot;global&quot;</span><span class="p">,</span>
+    <span class="n">noise_multiplier</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+    <span class="n">delta</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">epsilon_max</span> <span class="o">=</span> <span class="mf">3.0</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="loading-the-data">Loading the data<a class="headerlink" href="#loading-the-data" title="Permanent link">&para;</a></h3>
+<p>We clip the elementwise input upper-bound to <span class="arithmatex">\(20.0\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="c1"># data loader return dataset_metadata which allows to</span>
+<span class="c1"># know the informations required for privacy accounting</span>
+<span class="c1"># (dataset size, number of samples, max input bound...)</span>
+<span class="n">input_upper_bound</span> <span class="o">=</span> <span class="mf">20.0</span>
+<span class="n">ds_train</span><span class="p">,</span> <span class="n">ds_test</span><span class="p">,</span> <span class="n">dataset_metadata</span> <span class="o">=</span> <span class="n">load_and_prepare_data</span><span class="p">(</span>
+    <span class="s2">&quot;mnist&quot;</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">drop_remainder</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># accounting assumes fixed batch size</span>
+    <span class="n">bound_fct</span><span class="o">=</span><span class="n">bound_clip_value</span><span class="p">(</span>  <span class="c1"># other strategies are possible, like normalization.</span>
+        <span class="n">input_upper_bound</span>
+    <span class="p">),</span>  <span class="c1"># clipping preprocessing allows to control input bound</span>
+<span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+<code>2023-05-24 16:00:31.206597: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-05-24 16:00:31.742417: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 47066 MB memory:  -&gt; device: 0, name: Quadro RTX 8000, pci bus id: 0000:03:00.0, compute capability: 7.5
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="build-the-dp-model">Build the DP model<a class="headerlink" href="#build-the-dp-model" title="Permanent link">&para;</a></h3>
+<p>We imitate the interface of Keras. We use common layers found in deel-lip, which a wrapper that handles the bound propagation. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="c1"># construct DP_Sequential</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">DP_Sequential</span><span class="p">(</span>
+    <span class="c1"># works like usual sequential but requires DP layers</span>
+    <span class="n">layers</span><span class="o">=</span><span class="p">[</span>
+        <span class="c1"># BoundedInput works like Input, but performs input clipping to guarantee input bound</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">DP_BoundedInput</span><span class="p">(</span>
+            <span class="n">input_shape</span><span class="o">=</span><span class="n">dataset_metadata</span><span class="o">.</span><span class="n">input_shape</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="n">input_upper_bound</span>
+        <span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">DP_QuickSpectralConv2D</span><span class="p">(</span> <span class="c1"># Reshaped Kernel Orthogonalization (RKO) convolution.</span>
+            <span class="n">filters</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+            <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="n">kernel_initializer</span><span class="o">=</span><span class="s2">&quot;orthogonal&quot;</span><span class="p">,</span>
+            <span class="n">strides</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">use_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># No biases since the framework handles a single tf.Variable per layer.</span>
+        <span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">DP_GroupSort</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>  <span class="c1"># GNP activation function.</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">DP_ScaledL2NormPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>  <span class="c1"># GNP pooling.</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">DP_QuickSpectralConv2D</span><span class="p">(</span> <span class="c1"># Reshaped Kernel Orthogonalization (RKO) convolution.</span>
+            <span class="n">filters</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+            <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="n">kernel_initializer</span><span class="o">=</span><span class="s2">&quot;orthogonal&quot;</span><span class="p">,</span>
+            <span class="n">strides</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">use_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># No biases since the framework handles a single tf.Variable per layer.</span>
+        <span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">DP_GroupSort</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>  <span class="c1"># GNP activation function.</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">DP_ScaledL2NormPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>  <span class="c1"># GNP pooling.</span>
+
+        <span class="n">layers</span><span class="o">.</span><span class="n">DP_Flatten</span><span class="p">(),</span>   <span class="c1"># Convert features maps to flat vector.</span>
+
+        <span class="n">layers</span><span class="o">.</span><span class="n">DP_QuickSpectralDense</span><span class="p">(</span><span class="mi">512</span><span class="p">),</span>  <span class="c1"># GNP layer with orthogonal weight matrix.</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">DP_GroupSort</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">DP_QuickSpectralDense</span><span class="p">(</span><span class="n">dataset_metadata</span><span class="o">.</span><span class="n">nb_classes</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">dp_parameters</span><span class="o">=</span><span class="n">dp_parameters</span><span class="p">,</span>
+    <span class="n">dataset_metadata</span><span class="o">=</span><span class="n">dataset_metadata</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We compile the model with:
+* any first order optimizer (e.g SGD). No adaptation or special optimizer is needed.
+* a loss with known Lipschitz constant, e.g Categorical Cross-entropy with temperature.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="c1"># Compile model using DP loss</span>
+    <span class="n">loss</span><span class="o">=</span><span class="n">losses</span><span class="o">.</span><span class="n">DP_TauCategoricalCrossentropy</span><span class="p">(</span><span class="mf">18.0</span><span class="p">),</span>
+    <span class="c1"># this method is compatible with any first order optimizer</span>
+    <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">2e-4</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">),</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>Model: "dp__sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dp__bounded_input (DP_Bound  (None, 28, 28, 1)        0         
+ edInput)                                                        
+
+ dp__quick_spectral_conv2d (  (None, 26, 26, 32)       288       
+ DP_QuickSpectralConv2D)                                         
+
+ dp__group_sort (DP_GroupSor  (None, 26, 26, 32)       0         
+ t)                                                              
+
+ dp__scaled_l2_norm_pooling2  (None, 13, 13, 32)       0         
+ d (DP_ScaledL2NormPooling2D                                     
+ )                                                               
+
+ dp__quick_spectral_conv2d_1  (None, 11, 11, 64)       18432     
+  (DP_QuickSpectralConv2D)                                       
+
+ dp__group_sort_1 (DP_GroupS  (None, 11, 11, 64)       0         
+ ort)                                                            
+
+ dp__scaled_l2_norm_pooling2  (None, 5, 5, 64)         0         
+ d_1 (DP_ScaledL2NormPooling                                     
+ 2D)                                                             
+
+ dp__flatten (DP_Flatten)    (None, 1600)              0         
+
+ dp__quick_spectral_dense (D  (None, 512)              819200    
+ P_QuickSpectralDense)                                           
+
+ dp__group_sort_2 (DP_GroupS  (None, 512)              0         
+ ort)                                                            
+
+ dp__quick_spectral_dense_1   (None, 10)               5120      
+ (DP_QuickSpectralDense)                                         
+
+=================================================================
+Total params: 843,040
+Trainable params: 843,040
+Non-trainable params: 0
+_________________________________________________________________
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that the model contains <span class="arithmatex">\(843\)</span>K parameters. Without gradient clipping these architectures can be trained with batch sizes as big as <span class="arithmatex">\(1000\)</span> on a standard GPU.</p>
+<p>Then, we compute the number of epochs. The maximum value of epsilon will depends on dp_parameters and the number of epochs. In order to control epsilon, we compute the adequate number of epochs</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">num_epochs</span> <span class="o">=</span> <span class="n">get_max_epochs</span><span class="p">(</span><span class="n">epsilon_max</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>epoch bounds = (0, 512.0) and epsilon = 7.994426666195571 at epoch 512.0
+epoch bounds = (0, 256.0) and epsilon = 5.34128917907949 at epoch 256.0
+epoch bounds = (0, 128.0) and epsilon = 3.631964622805248 at epoch 128.0
+epoch bounds = (64.0, 128.0) and epsilon = 2.4829841192119444 at epoch 64.0
+epoch bounds = (64.0, 96.0) and epsilon = 3.089635897639078 at epoch 96.0
+epoch bounds = (80.0, 96.0) and epsilon = 2.796528753679695 at epoch 80.0
+epoch bounds = (88.0, 96.0) and epsilon = 2.952713799856404 at epoch 88.0
+epoch bounds = (88.0, 92.0) and epsilon = 3.0216241846349847 at epoch 92.0
+epoch bounds = (90.0, 92.0) and epsilon = 2.987618328313939 at epoch 90.0
+epoch bounds = (90.0, 91.0) and epsilon = 3.0046212568846444 at epoch 91.0
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="train-the-model">Train the model<a class="headerlink" href="#train-the-model" title="Permanent link">&para;</a></h2>
+<p>The model can be trained, and the DP Accountant will automatically track the privacy loss.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">hist</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">ds_train</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span>
+    <span class="n">validation_data</span><span class="o">=</span><span class="n">ds_test</span><span class="p">,</span>
+    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span>
+        <span class="c1"># accounting is done thanks to a callback</span>
+        <span class="n">DP_Accountant</span><span class="p">(</span><span class="n">log_fn</span><span class="o">=</span><span class="s2">&quot;logging&quot;</span><span class="p">),</span>  <span class="c1"># wandb.log also available.</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>Epoch 1/91
+</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+<code>2023-05-24 16:00:36.621954: I tensorflow/stream_executor/cuda/cuda_dnn.cc:368] Loaded cuDNN version 8300
+2023-05-24 16:00:37.363789: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>60/60 [==============================] - ETA: 0s - loss: 0.2020 - accuracy: 0.2324
+ (0.3227333785403041, 1e-05)-DP guarantees for epoch 1 
+
+60/60 [==============================] - 5s 38ms/step - loss: 0.2020 - accuracy: 0.2324 - val_loss: 0.1712 - val_accuracy: 0.3147
+Epoch 2/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.1607 - accuracy: 0.3958
+ (0.41135036253440604, 1e-05)-DP guarantees for epoch 2 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.1604 - accuracy: 0.3992 - val_loss: 0.1486 - val_accuracy: 0.5122
+Epoch 3/91
+60/60 [==============================] - ETA: 0s - loss: 0.1426 - accuracy: 0.5510
+ (0.4972854400421322, 1e-05)-DP guarantees for epoch 3 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.1426 - accuracy: 0.5510 - val_loss: 0.1334 - val_accuracy: 0.6108
+Epoch 4/91
+60/60 [==============================] - ETA: 0s - loss: 0.1291 - accuracy: 0.6333
+ (0.5737399623472044, 1e-05)-DP guarantees for epoch 4 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.1291 - accuracy: 0.6333 - val_loss: 0.1213 - val_accuracy: 0.6784
+Epoch 5/91
+60/60 [==============================] - ETA: 0s - loss: 0.1182 - accuracy: 0.6883
+ (0.6418194146435952, 1e-05)-DP guarantees for epoch 5 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.1182 - accuracy: 0.6883 - val_loss: 0.1109 - val_accuracy: 0.7180
+Epoch 6/91
+59/60 [============================&gt;.] - ETA: 0s - loss: 0.1088 - accuracy: 0.7247
+ (0.7042008802236781, 1e-05)-DP guarantees for epoch 6 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.1087 - accuracy: 0.7247 - val_loss: 0.1024 - val_accuracy: 0.7527
+Epoch 7/91
+60/60 [==============================] - ETA: 0s - loss: 0.1012 - accuracy: 0.7488
+ (0.7616059152520757, 1e-05)-DP guarantees for epoch 7 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.1012 - accuracy: 0.7488 - val_loss: 0.0955 - val_accuracy: 0.7698
+Epoch 8/91
+60/60 [==============================] - ETA: 0s - loss: 0.0948 - accuracy: 0.7644
+ (0.8155744676428971, 1e-05)-DP guarantees for epoch 8 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0948 - accuracy: 0.7644 - val_loss: 0.0899 - val_accuracy: 0.7815
+Epoch 9/91
+60/60 [==============================] - ETA: 0s - loss: 0.0896 - accuracy: 0.7785
+ (0.8666021691681208, 1e-05)-DP guarantees for epoch 9 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0896 - accuracy: 0.7785 - val_loss: 0.0848 - val_accuracy: 0.7936
+Epoch 10/91
+60/60 [==============================] - ETA: 0s - loss: 0.0849 - accuracy: 0.7868
+ (0.9152742048884784, 1e-05)-DP guarantees for epoch 10 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0849 - accuracy: 0.7868 - val_loss: 0.0804 - val_accuracy: 0.8003
+Epoch 11/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0810 - accuracy: 0.7967
+ (0.9617965624530973, 1e-05)-DP guarantees for epoch 11 
+
+60/60 [==============================] - 2s 30ms/step - loss: 0.0809 - accuracy: 0.7975 - val_loss: 0.0769 - val_accuracy: 0.8109
+Epoch 12/91
+60/60 [==============================] - ETA: 0s - loss: 0.0774 - accuracy: 0.8060
+ (1.0059716506359193, 1e-05)-DP guarantees for epoch 12 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0774 - accuracy: 0.8060 - val_loss: 0.0733 - val_accuracy: 0.8179
+Epoch 13/91
+60/60 [==============================] - ETA: 0s - loss: 0.0740 - accuracy: 0.8131
+ (1.049398006635733, 1e-05)-DP guarantees for epoch 13 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0740 - accuracy: 0.8131 - val_loss: 0.0704 - val_accuracy: 0.8269
+Epoch 14/91
+60/60 [==============================] - ETA: 0s - loss: 0.0713 - accuracy: 0.8216
+ (1.090263192229449, 1e-05)-DP guarantees for epoch 14 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0713 - accuracy: 0.8216 - val_loss: 0.0677 - val_accuracy: 0.8309
+Epoch 15/91
+60/60 [==============================] - ETA: 0s - loss: 0.0689 - accuracy: 0.8240
+ (1.131126828240101, 1e-05)-DP guarantees for epoch 15 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0689 - accuracy: 0.8240 - val_loss: 0.0656 - val_accuracy: 0.8355
+Epoch 16/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0669 - accuracy: 0.8293
+ (1.169340908770284, 1e-05)-DP guarantees for epoch 16 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0668 - accuracy: 0.8296 - val_loss: 0.0635 - val_accuracy: 0.8398
+Epoch 17/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0647 - accuracy: 0.8333
+ (1.2074292910030167, 1e-05)-DP guarantees for epoch 17 
+
+60/60 [==============================] - 2s 29ms/step - loss: 0.0646 - accuracy: 0.8335 - val_loss: 0.0615 - val_accuracy: 0.8437
+Epoch 18/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0630 - accuracy: 0.8366
+ (1.2447047350704166, 1e-05)-DP guarantees for epoch 18 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0629 - accuracy: 0.8367 - val_loss: 0.0598 - val_accuracy: 0.8468
+Epoch 19/91
+60/60 [==============================] - ETA: 0s - loss: 0.0612 - accuracy: 0.8399
+ (1.2800495944157277, 1e-05)-DP guarantees for epoch 19 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0612 - accuracy: 0.8399 - val_loss: 0.0582 - val_accuracy: 0.8508
+Epoch 20/91
+60/60 [==============================] - ETA: 0s - loss: 0.0598 - accuracy: 0.8428
+ (1.3153944538284068, 1e-05)-DP guarantees for epoch 20 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0598 - accuracy: 0.8428 - val_loss: 0.0569 - val_accuracy: 0.8563
+Epoch 21/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0584 - accuracy: 0.8468
+ (1.3507368078845663, 1e-05)-DP guarantees for epoch 21 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0584 - accuracy: 0.8466 - val_loss: 0.0557 - val_accuracy: 0.8572
+Epoch 22/91
+60/60 [==============================] - ETA: 0s - loss: 0.0572 - accuracy: 0.8509
+ (1.383564204783113, 1e-05)-DP guarantees for epoch 22 
+
+60/60 [==============================] - 2s 30ms/step - loss: 0.0572 - accuracy: 0.8509 - val_loss: 0.0546 - val_accuracy: 0.8610
+Epoch 23/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0561 - accuracy: 0.8519
+ (1.4161979427317832, 1e-05)-DP guarantees for epoch 23 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0562 - accuracy: 0.8518 - val_loss: 0.0537 - val_accuracy: 0.8619
+Epoch 24/91
+60/60 [==============================] - ETA: 0s - loss: 0.0552 - accuracy: 0.8547
+ (1.448831680775656, 1e-05)-DP guarantees for epoch 24 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0552 - accuracy: 0.8547 - val_loss: 0.0525 - val_accuracy: 0.8657
+Epoch 25/91
+59/60 [============================&gt;.] - ETA: 0s - loss: 0.0541 - accuracy: 0.8575
+ (1.4814654188092617, 1e-05)-DP guarantees for epoch 25 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0541 - accuracy: 0.8576 - val_loss: 0.0516 - val_accuracy: 0.8675
+Epoch 26/91
+60/60 [==============================] - ETA: 0s - loss: 0.0531 - accuracy: 0.8578
+ (1.512526290723161, 1e-05)-DP guarantees for epoch 26 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0531 - accuracy: 0.8578 - val_loss: 0.0506 - val_accuracy: 0.8691
+Epoch 27/91
+60/60 [==============================] - ETA: 0s - loss: 0.0522 - accuracy: 0.8605
+ (1.5424804710143858, 1e-05)-DP guarantees for epoch 27 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0522 - accuracy: 0.8605 - val_loss: 0.0497 - val_accuracy: 0.8709
+Epoch 28/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0512 - accuracy: 0.8624
+ (1.5724346510360574, 1e-05)-DP guarantees for epoch 28 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0512 - accuracy: 0.8626 - val_loss: 0.0488 - val_accuracy: 0.8730
+Epoch 29/91
+59/60 [============================&gt;.] - ETA: 0s - loss: 0.0503 - accuracy: 0.8650
+ (1.6023888317992228, 1e-05)-DP guarantees for epoch 29 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0503 - accuracy: 0.8653 - val_loss: 0.0479 - val_accuracy: 0.8752
+Epoch 30/91
+59/60 [============================&gt;.] - ETA: 0s - loss: 0.0495 - accuracy: 0.8665
+ (1.632343011263517, 1e-05)-DP guarantees for epoch 30 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0495 - accuracy: 0.8667 - val_loss: 0.0471 - val_accuracy: 0.8749
+Epoch 31/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0488 - accuracy: 0.8684
+ (1.6622962394525178, 1e-05)-DP guarantees for epoch 31 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0487 - accuracy: 0.8686 - val_loss: 0.0463 - val_accuracy: 0.8779
+Epoch 32/91
+60/60 [==============================] - ETA: 0s - loss: 0.0480 - accuracy: 0.8697
+ (1.689965116494089, 1e-05)-DP guarantees for epoch 32 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0480 - accuracy: 0.8697 - val_loss: 0.0457 - val_accuracy: 0.8777
+Epoch 33/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0475 - accuracy: 0.8700
+ (1.7172705001520499, 1e-05)-DP guarantees for epoch 33 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0475 - accuracy: 0.8704 - val_loss: 0.0452 - val_accuracy: 0.8790
+Epoch 34/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0469 - accuracy: 0.8736
+ (1.7445758842338837, 1e-05)-DP guarantees for epoch 34 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0468 - accuracy: 0.8738 - val_loss: 0.0446 - val_accuracy: 0.8806
+Epoch 35/91
+59/60 [============================&gt;.] - ETA: 0s - loss: 0.0463 - accuracy: 0.8754
+ (1.7718812676250233, 1e-05)-DP guarantees for epoch 35 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0462 - accuracy: 0.8756 - val_loss: 0.0441 - val_accuracy: 0.8825
+Epoch 36/91
+60/60 [==============================] - ETA: 0s - loss: 0.0456 - accuracy: 0.8763
+ (1.799186650959813, 1e-05)-DP guarantees for epoch 36 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0456 - accuracy: 0.8763 - val_loss: 0.0434 - val_accuracy: 0.8831
+Epoch 37/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0450 - accuracy: 0.8771
+ (1.8264920346090618, 1e-05)-DP guarantees for epoch 37 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0450 - accuracy: 0.8773 - val_loss: 0.0429 - val_accuracy: 0.8846
+Epoch 38/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0444 - accuracy: 0.8786
+ (1.8537974184156425, 1e-05)-DP guarantees for epoch 38 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0444 - accuracy: 0.8786 - val_loss: 0.0423 - val_accuracy: 0.8855
+Epoch 39/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0439 - accuracy: 0.8800
+ (1.8807666749981604, 1e-05)-DP guarantees for epoch 39 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0439 - accuracy: 0.8802 - val_loss: 0.0419 - val_accuracy: 0.8863
+Epoch 40/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0435 - accuracy: 0.8803
+ (1.9054738700393052, 1e-05)-DP guarantees for epoch 40 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0435 - accuracy: 0.8804 - val_loss: 0.0415 - val_accuracy: 0.8858
+Epoch 41/91
+60/60 [==============================] - ETA: 0s - loss: 0.0430 - accuracy: 0.8816
+ (1.9301604511513608, 1e-05)-DP guarantees for epoch 41 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0430 - accuracy: 0.8816 - val_loss: 0.0410 - val_accuracy: 0.8884
+Epoch 42/91
+60/60 [==============================] - ETA: 0s - loss: 0.0425 - accuracy: 0.8824
+ (1.9548470320035656, 1e-05)-DP guarantees for epoch 42 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0425 - accuracy: 0.8824 - val_loss: 0.0405 - val_accuracy: 0.8890
+Epoch 43/91
+60/60 [==============================] - ETA: 0s - loss: 0.0421 - accuracy: 0.8837
+ (1.979533612594768, 1e-05)-DP guarantees for epoch 43 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0421 - accuracy: 0.8837 - val_loss: 0.0403 - val_accuracy: 0.8890
+Epoch 44/91
+60/60 [==============================] - ETA: 0s - loss: 0.0418 - accuracy: 0.8856
+ (2.0042201936126345, 1e-05)-DP guarantees for epoch 44 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0418 - accuracy: 0.8856 - val_loss: 0.0399 - val_accuracy: 0.8908
+Epoch 45/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0414 - accuracy: 0.8858
+ (2.0289067746857206, 1e-05)-DP guarantees for epoch 45 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0414 - accuracy: 0.8856 - val_loss: 0.0393 - val_accuracy: 0.8926
+Epoch 46/91
+60/60 [==============================] - ETA: 0s - loss: 0.0408 - accuracy: 0.8872
+ (2.053593355232055, 1e-05)-DP guarantees for epoch 46 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0408 - accuracy: 0.8872 - val_loss: 0.0388 - val_accuracy: 0.8951
+Epoch 47/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0405 - accuracy: 0.8882
+ (2.078279935996221, 1e-05)-DP guarantees for epoch 47 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0404 - accuracy: 0.8887 - val_loss: 0.0385 - val_accuracy: 0.8959
+Epoch 48/91
+60/60 [==============================] - ETA: 0s - loss: 0.0400 - accuracy: 0.8882
+ (2.1029665168498504, 1e-05)-DP guarantees for epoch 48 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0400 - accuracy: 0.8882 - val_loss: 0.0381 - val_accuracy: 0.8952
+Epoch 49/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0397 - accuracy: 0.8890
+ (2.127653097450219, 1e-05)-DP guarantees for epoch 49 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0398 - accuracy: 0.8888 - val_loss: 0.0379 - val_accuracy: 0.8943
+Epoch 50/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0396 - accuracy: 0.8887
+ (2.151531383398666, 1e-05)-DP guarantees for epoch 50 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0395 - accuracy: 0.8889 - val_loss: 0.0375 - val_accuracy: 0.8946
+Epoch 51/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0391 - accuracy: 0.8893
+ (2.1736284198821467, 1e-05)-DP guarantees for epoch 51 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0391 - accuracy: 0.8895 - val_loss: 0.0372 - val_accuracy: 0.8968
+Epoch 52/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0387 - accuracy: 0.8908
+ (2.195725456202997, 1e-05)-DP guarantees for epoch 52 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0387 - accuracy: 0.8908 - val_loss: 0.0368 - val_accuracy: 0.8967
+Epoch 53/91
+60/60 [==============================] - ETA: 0s - loss: 0.0385 - accuracy: 0.8905
+ (2.217822492103547, 1e-05)-DP guarantees for epoch 53 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0385 - accuracy: 0.8905 - val_loss: 0.0366 - val_accuracy: 0.8991
+Epoch 54/91
+60/60 [==============================] - ETA: 0s - loss: 0.0382 - accuracy: 0.8913
+ (2.2399195284840734, 1e-05)-DP guarantees for epoch 54 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0382 - accuracy: 0.8913 - val_loss: 0.0365 - val_accuracy: 0.8992
+Epoch 55/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0380 - accuracy: 0.8924
+ (2.2620165646623547, 1e-05)-DP guarantees for epoch 55 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0380 - accuracy: 0.8921 - val_loss: 0.0362 - val_accuracy: 0.8994
+Epoch 56/91
+60/60 [==============================] - ETA: 0s - loss: 0.0377 - accuracy: 0.8925
+ (2.2841136015562187, 1e-05)-DP guarantees for epoch 56 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0377 - accuracy: 0.8925 - val_loss: 0.0358 - val_accuracy: 0.8999
+Epoch 57/91
+60/60 [==============================] - ETA: 0s - loss: 0.0374 - accuracy: 0.8930
+ (2.3062106367493893, 1e-05)-DP guarantees for epoch 57 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0374 - accuracy: 0.8930 - val_loss: 0.0356 - val_accuracy: 0.9004
+Epoch 58/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0371 - accuracy: 0.8938
+ (2.3283076739544244, 1e-05)-DP guarantees for epoch 58 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0372 - accuracy: 0.8939 - val_loss: 0.0354 - val_accuracy: 0.9010
+Epoch 59/91
+60/60 [==============================] - ETA: 0s - loss: 0.0369 - accuracy: 0.8951
+ (2.3504047095381226, 1e-05)-DP guarantees for epoch 59 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0369 - accuracy: 0.8951 - val_loss: 0.0351 - val_accuracy: 0.9010
+Epoch 60/91
+60/60 [==============================] - ETA: 0s - loss: 0.0365 - accuracy: 0.8963
+ (2.3725017457248683, 1e-05)-DP guarantees for epoch 60 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0365 - accuracy: 0.8963 - val_loss: 0.0347 - val_accuracy: 0.9037
+Epoch 61/91
+60/60 [==============================] - ETA: 0s - loss: 0.0363 - accuracy: 0.8968
+ (2.3945987822094885, 1e-05)-DP guarantees for epoch 61 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0363 - accuracy: 0.8968 - val_loss: 0.0346 - val_accuracy: 0.9024
+Epoch 62/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0360 - accuracy: 0.8979
+ (2.4166958179233653, 1e-05)-DP guarantees for epoch 62 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0360 - accuracy: 0.8981 - val_loss: 0.0343 - val_accuracy: 0.9041
+Epoch 63/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0358 - accuracy: 0.8986
+ (2.438792853624178, 1e-05)-DP guarantees for epoch 63 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0358 - accuracy: 0.8987 - val_loss: 0.0340 - val_accuracy: 0.9068
+Epoch 64/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0355 - accuracy: 0.8995
+ (2.4608898896847116, 1e-05)-DP guarantees for epoch 64 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0356 - accuracy: 0.8992 - val_loss: 0.0338 - val_accuracy: 0.9072
+Epoch 65/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0352 - accuracy: 0.9005
+ (2.4829841192119444, 1e-05)-DP guarantees for epoch 65 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0353 - accuracy: 0.9000 - val_loss: 0.0336 - val_accuracy: 0.9059
+Epoch 66/91
+60/60 [==============================] - ETA: 0s - loss: 0.0351 - accuracy: 0.8996
+ (2.5034880893370737, 1e-05)-DP guarantees for epoch 66 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0351 - accuracy: 0.8996 - val_loss: 0.0334 - val_accuracy: 0.9070
+Epoch 67/91
+59/60 [============================&gt;.] - ETA: 0s - loss: 0.0350 - accuracy: 0.9003
+ (2.523024133549594, 1e-05)-DP guarantees for epoch 67 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0349 - accuracy: 0.9003 - val_loss: 0.0333 - val_accuracy: 0.9069
+Epoch 68/91
+60/60 [==============================] - ETA: 0s - loss: 0.0348 - accuracy: 0.9005
+ (2.542560178527111, 1e-05)-DP guarantees for epoch 68 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0348 - accuracy: 0.9005 - val_loss: 0.0332 - val_accuracy: 0.9071
+Epoch 69/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0346 - accuracy: 0.9006
+ (2.5620962223364145, 1e-05)-DP guarantees for epoch 69 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0347 - accuracy: 0.9007 - val_loss: 0.0329 - val_accuracy: 0.9081
+Epoch 70/91
+59/60 [============================&gt;.] - ETA: 0s - loss: 0.0345 - accuracy: 0.9015
+ (2.5816322672410785, 1e-05)-DP guarantees for epoch 70 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0345 - accuracy: 0.9014 - val_loss: 0.0327 - val_accuracy: 0.9069
+Epoch 71/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0343 - accuracy: 0.9017
+ (2.601168310806795, 1e-05)-DP guarantees for epoch 71 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0343 - accuracy: 0.9019 - val_loss: 0.0326 - val_accuracy: 0.9090
+Epoch 72/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0342 - accuracy: 0.9021
+ (2.620704354996593, 1e-05)-DP guarantees for epoch 72 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0342 - accuracy: 0.9022 - val_loss: 0.0324 - val_accuracy: 0.9089
+Epoch 73/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0340 - accuracy: 0.9018
+ (2.640240400625916, 1e-05)-DP guarantees for epoch 73 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0339 - accuracy: 0.9020 - val_loss: 0.0322 - val_accuracy: 0.9096
+Epoch 74/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0339 - accuracy: 0.9018
+ (2.659776444789028, 1e-05)-DP guarantees for epoch 74 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0338 - accuracy: 0.9022 - val_loss: 0.0320 - val_accuracy: 0.9103
+Epoch 75/91
+59/60 [============================&gt;.] - ETA: 0s - loss: 0.0335 - accuracy: 0.9024
+ (2.679312488654814, 1e-05)-DP guarantees for epoch 75 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0335 - accuracy: 0.9024 - val_loss: 0.0318 - val_accuracy: 0.9088
+Epoch 76/91
+59/60 [============================&gt;.] - ETA: 0s - loss: 0.0333 - accuracy: 0.9025
+ (2.69884853278786, 1e-05)-DP guarantees for epoch 76 
+
+60/60 [==============================] - 2s 29ms/step - loss: 0.0333 - accuracy: 0.9023 - val_loss: 0.0315 - val_accuracy: 0.9098
+Epoch 77/91
+60/60 [==============================] - ETA: 0s - loss: 0.0332 - accuracy: 0.9033
+ (2.7183845763895516, 1e-05)-DP guarantees for epoch 77 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0332 - accuracy: 0.9033 - val_loss: 0.0314 - val_accuracy: 0.9125
+Epoch 78/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0330 - accuracy: 0.9046
+ (2.737920620600221, 1e-05)-DP guarantees for epoch 78 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0330 - accuracy: 0.9048 - val_loss: 0.0313 - val_accuracy: 0.9119
+Epoch 79/91
+60/60 [==============================] - ETA: 0s - loss: 0.0328 - accuracy: 0.9053
+ (2.7574566653298858, 1e-05)-DP guarantees for epoch 79 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0328 - accuracy: 0.9053 - val_loss: 0.0311 - val_accuracy: 0.9115
+Epoch 80/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0328 - accuracy: 0.9052
+ (2.7769927101097007, 1e-05)-DP guarantees for epoch 80 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0327 - accuracy: 0.9056 - val_loss: 0.0310 - val_accuracy: 0.9118
+Epoch 81/91
+60/60 [==============================] - ETA: 0s - loss: 0.0325 - accuracy: 0.9056
+ (2.796528753679695, 1e-05)-DP guarantees for epoch 81 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0325 - accuracy: 0.9056 - val_loss: 0.0308 - val_accuracy: 0.9114
+Epoch 82/91
+60/60 [==============================] - ETA: 0s - loss: 0.0324 - accuracy: 0.9057
+ (2.816064798903292, 1e-05)-DP guarantees for epoch 82 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0324 - accuracy: 0.9057 - val_loss: 0.0307 - val_accuracy: 0.9114
+Epoch 83/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0323 - accuracy: 0.9053
+ (2.8356008431856474, 1e-05)-DP guarantees for epoch 83 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0322 - accuracy: 0.9057 - val_loss: 0.0305 - val_accuracy: 0.9117
+Epoch 84/91
+60/60 [==============================] - ETA: 0s - loss: 0.0320 - accuracy: 0.9063
+ (2.8551368864333964, 1e-05)-DP guarantees for epoch 84 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0320 - accuracy: 0.9063 - val_loss: 0.0303 - val_accuracy: 0.9117
+Epoch 85/91
+60/60 [==============================] - ETA: 0s - loss: 0.0318 - accuracy: 0.9064
+ (2.8746729305801413, 1e-05)-DP guarantees for epoch 85 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0318 - accuracy: 0.9064 - val_loss: 0.0302 - val_accuracy: 0.9121
+Epoch 86/91
+59/60 [============================&gt;.] - ETA: 0s - loss: 0.0317 - accuracy: 0.9074
+ (2.894208975473722, 1e-05)-DP guarantees for epoch 86 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0316 - accuracy: 0.9076 - val_loss: 0.0299 - val_accuracy: 0.9132
+Epoch 87/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0314 - accuracy: 0.9078
+ (2.9137450193835823, 1e-05)-DP guarantees for epoch 87 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0314 - accuracy: 0.9076 - val_loss: 0.0298 - val_accuracy: 0.9123
+Epoch 88/91
+60/60 [==============================] - ETA: 0s - loss: 0.0313 - accuracy: 0.9086
+ (2.9332810632263646, 1e-05)-DP guarantees for epoch 88 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0313 - accuracy: 0.9086 - val_loss: 0.0299 - val_accuracy: 0.9133
+Epoch 89/91
+59/60 [============================&gt;.] - ETA: 0s - loss: 0.0313 - accuracy: 0.9087
+ (2.952713799856404, 1e-05)-DP guarantees for epoch 89 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0313 - accuracy: 0.9087 - val_loss: 0.0298 - val_accuracy: 0.9140
+Epoch 90/91
+60/60 [==============================] - ETA: 0s - loss: 0.0312 - accuracy: 0.9097
+ (2.970615400210975, 1e-05)-DP guarantees for epoch 90 
+
+60/60 [==============================] - 2s 28ms/step - loss: 0.0312 - accuracy: 0.9097 - val_loss: 0.0298 - val_accuracy: 0.9127
+Epoch 91/91
+58/60 [============================&gt;.] - ETA: 0s - loss: 0.0312 - accuracy: 0.9091
+ (2.987618328313939, 1e-05)-DP guarantees for epoch 91 
+
+60/60 [==============================] - 2s 27ms/step - loss: 0.0312 - accuracy: 0.9093 - val_loss: 0.0297 - val_accuracy: 0.9132
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The model can be further improved by tuning various hyper-parameters, by adding layers (see <code>advanced_cifar10.ipynb</code> tutorial). </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../js/custom.js"></script>
+      
+    
+  </body>
+</html>

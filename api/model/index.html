@@ -1,0 +1,3616 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../losses/">
+      
+      
+        <link rel="next" href="../pipeline/">
+      
+      
+      <link rel="icon" href="../../assets/lipdp_logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.12">
+    
+    
+      
+        <title>deel.lipdp.model module - lipdp</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="dark" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deel.lipdp.model" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="lipdp" class="md-header__button md-logo" aria-label="lipdp" data-md-component="logo">
+      
+  <img src="../../assets/lipdp_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            lipdp
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              deel.lipdp.model module
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="dark" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/deel-ai/<libname>" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deel-ai/<libname>
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="lipdp" class="md-nav__button md-logo" aria-label="lipdp" data-md-component="logo">
+      
+  <img src="../../assets/lipdp_logo.png" alt="logo">
+
+    </a>
+    lipdp
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/deel-ai/<libname>" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deel-ai/<libname>
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    deel.lipdp.layers module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../losses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    deel.lipdp.losses module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    deel.lipdp.model module
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    deel.lipdp.model module
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model" class="md-nav__link">
+    <span class="md-ellipsis">
+      model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DPParameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      DPParameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Accountant" class="md-nav__link">
+    <span class="md-ellipsis">
+      DP_Accountant
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Model" class="md-nav__link">
+    <span class="md-ellipsis">
+      DP_Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DP_Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Model.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Model.signal_to_noise_average" class="md-nav__link">
+    <span class="md-ellipsis">
+      signal_to_noise_average
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Model.signal_to_noise_elementwise" class="md-nav__link">
+    <span class="md-ellipsis">
+      signal_to_noise_elementwise
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Model.train_step" class="md-nav__link">
+    <span class="md-ellipsis">
+      train_step
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Sequential" class="md-nav__link">
+    <span class="md-ellipsis">
+      DP_Sequential
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DP_Sequential">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Sequential.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.compute_gradient_bounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      compute_gradient_bounds
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.get_eps_delta" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_eps_delta
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.get_noise_multiplier_coefs" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_noise_multiplier_coefs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.global_noisify" class="md-nav__link">
+    <span class="md-ellipsis">
+      global_noisify
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.local_noisify" class="md-nav__link">
+    <span class="md-ellipsis">
+      local_noisify
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    deel.lipdp.pipeline module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sensitivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    deel.lipdp.sensitivity module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/basic_mnist.ipynb" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Demo 1: basic use on MNIST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/advanced_cifar10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Demo 2: advanced use on CIFAR10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CONTRIBUTING/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model" class="md-nav__link">
+    <span class="md-ellipsis">
+      model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DPParameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      DPParameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Accountant" class="md-nav__link">
+    <span class="md-ellipsis">
+      DP_Accountant
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Model" class="md-nav__link">
+    <span class="md-ellipsis">
+      DP_Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DP_Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Model.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Model.signal_to_noise_average" class="md-nav__link">
+    <span class="md-ellipsis">
+      signal_to_noise_average
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Model.signal_to_noise_elementwise" class="md-nav__link">
+    <span class="md-ellipsis">
+      signal_to_noise_elementwise
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Model.train_step" class="md-nav__link">
+    <span class="md-ellipsis">
+      train_step
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Sequential" class="md-nav__link">
+    <span class="md-ellipsis">
+      DP_Sequential
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DP_Sequential">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deel.lipdp.model.DP_Sequential.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.compute_gradient_bounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      compute_gradient_bounds
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.get_eps_delta" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_eps_delta
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.get_noise_multiplier_coefs" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_noise_multiplier_coefs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.global_noisify" class="md-nav__link">
+    <span class="md-ellipsis">
+      global_noisify
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deel.lipdp.model.local_noisify" class="md-nav__link">
+    <span class="md-ellipsis">
+      local_noisify
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>deel.lipdp.model module</h1>
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="deel.lipdp.model"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="deel.lipdp.model.DPParameters" class="doc doc-heading">
+          <code>DPParameters</code>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#deel.lipdp.model.DPParameters" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Parameters used to set the dp training.</p>
+
+
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code><span title="deel.lipdp.model.DPParameters.noisify_strategy">noisify_strategy</span></code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>either "per-layer" or "global".</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="deel.lipdp.model.DPParameters.noise_multiplier">noise_multiplier</span></code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>noise multiplier.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="deel.lipdp.model.DPParameters.delta">delta</span></code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>delta parameter for DP.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+            <details class="quote">
+              <summary>Source code in <code>deel/lipdp/model.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">DPParameters</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parameters used to set the dp training.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        noisify_strategy (str): either &quot;per-layer&quot; or &quot;global&quot;.</span>
+<span class="sd">        noise_multiplier (float): noise multiplier.</span>
+<span class="sd">        delta (float): delta parameter for DP.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">noisify_strategy</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">noise_multiplier</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">delta</span><span class="p">:</span> <span class="nb">float</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="deel.lipdp.model.DP_Accountant" class="doc doc-heading">
+          <code>DP_Accountant</code>
+
+
+<a href="#deel.lipdp.model.DP_Accountant" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="tensorflow.keras.callbacks.Callback">Callback</span></code></p>
+
+  
+      <p>Callback to compute the DP guarantees at the end of each epoch.</p>
+<p>Note: wandb is not a strict requirement for this callback to work, logging is also supported.</p>
+
+
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code><span title="deel.lipdp.model.DP_Accountant.log_fn">log_fn</span></code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>log function to use. Takes a dictionary of (key, value) pairs as input.
+    if 'wandb', use wandb.log.
+    if 'logging', use logging.info.
+    if 'all', use both wandb.log and logging.info.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+            <details class="quote">
+              <summary>Source code in <code>deel/lipdp/model.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DP_Accountant</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">Callback</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Callback to compute the DP guarantees at the end of each epoch.</span>
+
+<span class="sd">    Note: wandb is not a strict requirement for this callback to work, logging is also supported.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        log_fn: log function to use. Takes a dictionary of (key, value) pairs as input.</span>
+<span class="sd">                if &#39;wandb&#39;, use wandb.log.</span>
+<span class="sd">                if &#39;logging&#39;, use logging.info.</span>
+<span class="sd">                if &#39;all&#39;, use both wandb.log and logging.info.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_fn</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">log_fn</span> <span class="o">==</span> <span class="s2">&quot;wandb&quot;</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">wandb</span>
+
+            <span class="n">log_fn</span> <span class="o">=</span> <span class="n">wandb</span><span class="o">.</span><span class="n">log</span>
+        <span class="k">elif</span> <span class="n">log_fn</span> <span class="o">==</span> <span class="s2">&quot;logging&quot;</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">logging</span>
+
+            <span class="n">log_fn</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">info</span>
+        <span class="k">elif</span> <span class="n">log_fn</span> <span class="o">==</span> <span class="s2">&quot;all&quot;</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">wandb</span>
+            <span class="kn">import</span> <span class="nn">logging</span>
+
+            <span class="n">log_fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">wandb</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_fn</span> <span class="o">=</span> <span class="n">log_fn</span>
+
+    <span class="k">def</span> <span class="nf">on_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">logs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">epsilon</span><span class="p">,</span> <span class="n">delta</span> <span class="o">=</span> <span class="n">get_eps_delta</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="p">(</span><span class="n">epsilon</span><span class="p">,</span><span class="n">delta</span><span class="p">)</span><span class="si">}</span><span class="s2">-DP guarantees for epoch </span><span class="si">{</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># plot epoch at the same time as epsilon and delta to ease comparison of plots in wandb API.</span>
+        <span class="n">to_log</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;epsilon&quot;</span><span class="p">:</span> <span class="n">epsilon</span><span class="p">,</span>
+            <span class="s2">&quot;delta&quot;</span><span class="p">:</span> <span class="n">delta</span><span class="p">,</span>
+            <span class="s2">&quot;epoch&quot;</span><span class="p">:</span> <span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="n">last_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">layers_backward_order</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">last_layer</span><span class="p">,</span> <span class="n">deel</span><span class="o">.</span><span class="n">lipdp</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">DP_ClipGradient</span><span class="p">):</span>
+            <span class="n">clipping_value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">last_layer</span><span class="o">.</span><span class="n">clip_value</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+            <span class="n">to_log</span><span class="p">[</span><span class="s2">&quot;clipping_value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clipping_value</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_fn</span><span class="p">(</span><span class="n">to_log</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="deel.lipdp.model.DP_Model" class="doc doc-heading">
+          <code>DP_Model</code>
+
+
+<a href="#deel.lipdp.model.DP_Model" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="deel.lip.model.Model">Model</span></code></p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>deel/lipdp/model.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span>
+<span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span>
+<span class="normal">454</span>
+<span class="normal">455</span>
+<span class="normal">456</span>
+<span class="normal">457</span>
+<span class="normal">458</span>
+<span class="normal">459</span>
+<span class="normal">460</span>
+<span class="normal">461</span>
+<span class="normal">462</span>
+<span class="normal">463</span>
+<span class="normal">464</span>
+<span class="normal">465</span>
+<span class="normal">466</span>
+<span class="normal">467</span>
+<span class="normal">468</span>
+<span class="normal">469</span>
+<span class="normal">470</span>
+<span class="normal">471</span>
+<span class="normal">472</span>
+<span class="normal">473</span>
+<span class="normal">474</span>
+<span class="normal">475</span>
+<span class="normal">476</span>
+<span class="normal">477</span>
+<span class="normal">478</span>
+<span class="normal">479</span>
+<span class="normal">480</span>
+<span class="normal">481</span>
+<span class="normal">482</span>
+<span class="normal">483</span>
+<span class="normal">484</span>
+<span class="normal">485</span>
+<span class="normal">486</span>
+<span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span>
+<span class="normal">498</span>
+<span class="normal">499</span>
+<span class="normal">500</span>
+<span class="normal">501</span>
+<span class="normal">502</span>
+<span class="normal">503</span>
+<span class="normal">504</span>
+<span class="normal">505</span>
+<span class="normal">506</span>
+<span class="normal">507</span>
+<span class="normal">508</span>
+<span class="normal">509</span>
+<span class="normal">510</span>
+<span class="normal">511</span>
+<span class="normal">512</span>
+<span class="normal">513</span>
+<span class="normal">514</span>
+<span class="normal">515</span>
+<span class="normal">516</span>
+<span class="normal">517</span>
+<span class="normal">518</span>
+<span class="normal">519</span>
+<span class="normal">520</span>
+<span class="normal">521</span>
+<span class="normal">522</span>
+<span class="normal">523</span>
+<span class="normal">524</span>
+<span class="normal">525</span>
+<span class="normal">526</span>
+<span class="normal">527</span>
+<span class="normal">528</span>
+<span class="normal">529</span>
+<span class="normal">530</span>
+<span class="normal">531</span>
+<span class="normal">532</span>
+<span class="normal">533</span>
+<span class="normal">534</span>
+<span class="normal">535</span>
+<span class="normal">536</span>
+<span class="normal">537</span>
+<span class="normal">538</span>
+<span class="normal">539</span>
+<span class="normal">540</span>
+<span class="normal">541</span>
+<span class="normal">542</span>
+<span class="normal">543</span>
+<span class="normal">544</span>
+<span class="normal">545</span>
+<span class="normal">546</span>
+<span class="normal">547</span>
+<span class="normal">548</span>
+<span class="normal">549</span>
+<span class="normal">550</span>
+<span class="normal">551</span>
+<span class="normal">552</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DP_Model</span><span class="p">(</span><span class="n">deel</span><span class="o">.</span><span class="n">lip</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dp_layers</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+        <span class="n">dp_parameters</span><span class="p">:</span> <span class="n">DPParameters</span><span class="p">,</span>
+        <span class="n">dataset_metadata</span><span class="p">:</span> <span class="n">DatasetMetadata</span><span class="p">,</span>
+        <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Model Class based on the DEEL Sequential model. Only layer from the lipdp.layers module are allowed since</span>
+<span class="sd">        the framework assume 1 lipschitz layers.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dp_layers: the list of layers to use ( as done in sequential ) but here we can leverage</span>
+<span class="sd">                the fact that layers may have multiple inputs/outputs.</span>
+<span class="sd">            dp_parameters (DPParameters): parameters used to set the dp procedure.</span>
+<span class="sd">            dataset_metadata (DatasetMetadata): information about the dataset. Must contain: the input shape, number</span>
+<span class="sd">                of training samples, the input bound, number of batches in the dataset and the batch size.</span>
+<span class="sd">            debug (bool, optional): when true print additionnal debug informations (must be in eager mode). Defaults to False.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            The model is then calibrated to verify (epsilon,delta)-DP guarantees by noisying the values of the gradients during the training step.</span>
+<span class="sd">            DP accounting is done with the associated Callback.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: when the dp_parameters.noisify_strategy is not one of &quot;per-layer&quot; or &quot;global&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dp_layers</span> <span class="o">=</span> <span class="n">dp_layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dp_parameters</span> <span class="o">=</span> <span class="n">dp_parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_metadata</span> <span class="o">=</span> <span class="n">dataset_metadata</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="n">debug</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">noisify_strategy</span> <span class="o">==</span> <span class="s2">&quot;global&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">noisify_fun</span> <span class="o">=</span> <span class="n">global_noisify</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">noisify_strategy</span> <span class="o">==</span> <span class="s2">&quot;per-layer&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">noisify_fun</span> <span class="o">=</span> <span class="n">local_noisify</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Incorrect noisify_strategy argument during model initialisation.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">layers_forward_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp_layers</span>
+
+    <span class="k">def</span> <span class="nf">layers_backward_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp_layers</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">inputs</span>
+        <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers_forward_order</span><span class="p">():</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+    <span class="k">def</span> <span class="nf">signal_to_noise_elementwise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute the signal to noise ratio of the model.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data: a tuple (x,y) of a batch of data.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ratios: dictionary of signal to noise ratios. Keys are trainable variables names.</span>
+<span class="sd">            norms: dictionary of gradient norms. Keys are trainable variables names.</span>
+<span class="sd">            bounds: dictionary of gradient norm bounds. Keys are trainable variables names.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">tqdm</span>
+
+        <span class="n">examples</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span>
+
+        <span class="n">trainable_vars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainable_variables</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainable_vars</span><span class="p">]</span>
+
+        <span class="n">bounds</span> <span class="o">=</span> <span class="n">compute_gradient_bounds</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">batch_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset_metadata</span><span class="o">.</span><span class="n">batch_size</span>
+        <span class="n">bounds</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">bound</span> <span class="o">*</span> <span class="n">batch_size</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">bound</span> <span class="ow">in</span> <span class="n">bounds</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="n">norms</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">}</span>
+        <span class="n">ratios</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">}</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">examples</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">examples</span><span class="p">,</span> <span class="n">labels</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="n">total</span><span class="p">):</span>
+            <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compiled_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">regularization_losses</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">losses</span><span class="p">)</span>
+
+            <span class="n">gradient_element</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">)</span>
+            <span class="n">norms_element</span> <span class="o">=</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">gradient_element</span><span class="p">]</span>
+            <span class="n">norms_element</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">norm</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">norm</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">norms_element</span><span class="p">)}</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+                <span class="n">norms</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">norms_element</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+
+            <span class="n">ratios_element</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+                <span class="n">ratios_element</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">norms_element</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">/</span> <span class="n">bounds</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+                <span class="n">ratios</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ratios_element</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+
+        <span class="n">ratios</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="n">name</span><span class="p">])</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">}</span>
+        <span class="n">norms</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">norms</span><span class="p">[</span><span class="n">name</span><span class="p">])</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">ratios</span><span class="p">,</span> <span class="n">norms</span><span class="p">,</span> <span class="n">bounds</span>
+
+    <span class="k">def</span> <span class="nf">signal_to_noise_average</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute the signal to noise ratio of the model.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data: a tuple (x,y) of a batch of data. The batch size must be equal to the one of the dataset.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ratios: dictionary of signal to noise ratios. Keys are trainable variables names.</span>
+<span class="sd">            norms: dictionary of gradient norms. Keys are trainable variables names.</span>
+<span class="sd">            bounds: dictionary of gradient norm bounds. Keys are trainable variables names.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span>
+
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset_metadata</span><span class="o">.</span><span class="n">batch_size</span>
+        <span class="p">),</span> <span class="s2">&quot;Batch size must be equal to the one of the dataset&quot;</span>
+
+        <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Forward pass</span>
+            <span class="c1"># tf.cast(y_pred,dtype=y.dtype)</span>
+            <span class="c1"># Compute the loss value</span>
+            <span class="c1"># (the loss function is configured in `compile()`)</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compiled_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">regularization_losses</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">losses</span><span class="p">)</span>
+
+        <span class="c1"># Compute gradients</span>
+        <span class="n">trainable_vars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainable_variables</span>
+        <span class="n">gradients</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">)</span>
+
+        <span class="c1"># gradient norms</span>
+        <span class="n">norms</span> <span class="o">=</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">gradients</span><span class="p">]</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainable_vars</span><span class="p">]</span>
+        <span class="n">norms</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">norm</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">norm</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">norms</span><span class="p">)}</span>
+
+        <span class="c1"># Get gradient bounds</span>
+        <span class="n">bounds</span> <span class="o">=</span> <span class="n">compute_gradient_bounds</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">batch_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset_metadata</span><span class="o">.</span><span class="n">batch_size</span>
+        <span class="n">bounds</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="p">(</span><span class="n">bound</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">bound</span> <span class="ow">in</span> <span class="n">bounds</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="n">ratios</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="n">ratios</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">norms</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">/</span> <span class="n">bounds</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">ratios</span><span class="p">,</span> <span class="n">norms</span><span class="p">,</span> <span class="n">bounds</span>
+
+    <span class="c1"># Define the differentially private training step</span>
+    <span class="k">def</span> <span class="nf">train_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Train step of the model with DP guarantees.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data: a tuple (x,y) of a batch of data.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            metrics: dictionary of metrics.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Unpack data</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span>
+
+        <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Forward pass</span>
+            <span class="c1"># tf.cast(y_pred,dtype=y.dtype)</span>
+            <span class="c1"># Compute the loss value</span>
+            <span class="c1"># (the loss function is configured in `compile()`)</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compiled_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">regularization_losses</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">losses</span><span class="p">)</span>
+
+        <span class="c1"># Compute gradients</span>
+        <span class="n">trainable_vars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainable_variables</span>
+        <span class="n">gradients</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">)</span>
+        <span class="c1"># Get gradient bounds</span>
+        <span class="n">gradient_bounds</span> <span class="o">=</span> <span class="n">compute_gradient_bounds</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">noisy_gradients</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">noisify_fun</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">gradient_bounds</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">,</span> <span class="n">gradients</span>
+        <span class="p">)</span>
+        <span class="c1"># Each optimizer is a postprocessing of private gradients</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">apply_gradients</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">noisy_gradients</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">))</span>
+
+        <span class="c1"># Update Metrics</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compiled_metrics</span><span class="o">.</span><span class="n">update_state</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+        <span class="c1"># Condense to ensure Lipschitz constraints |W|_2 = 1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condense</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">m</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">m</span><span class="o">.</span><span class="n">result</span><span class="p">()</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="deel.lipdp.model.DP_Model.__init__" class="doc doc-heading">
+          <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">dp_layers</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">dp_parameters</span><span class="p">,</span> <span class="n">dataset_metadata</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+<a href="#deel.lipdp.model.DP_Model.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Model Class based on the DEEL Sequential model. Only layer from the lipdp.layers module are allowed since
+the framework assume 1 lipschitz layers.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>dp_layers</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>the list of layers to use ( as done in sequential ) but here we can leverage
+the fact that layers may have multiple inputs/outputs.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>dp_parameters</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="deel.lipdp.model.DPParameters" href="#deel.lipdp.model.DPParameters">DPParameters</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>parameters used to set the dp procedure.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>dataset_metadata</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="deel.lipdp.pipeline.DatasetMetadata" href="../pipeline/#deel.lipdp.pipeline.DatasetMetadata">DatasetMetadata</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>information about the dataset. Must contain: the input shape, number
+of training samples, the input bound, number of batches in the dataset and the batch size.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>debug</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>when true print additionnal debug informations (must be in eager mode). Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<details class="note" open>
+  <summary>Note</summary>
+  <p>The model is then calibrated to verify (epsilon,delta)-DP guarantees by noisying the values of the gradients during the training step.
+DP accounting is done with the associated Callback.</p>
+</details>
+
+
+  <p><strong>Raises:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>TypeError</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>when the dp_parameters.noisify_strategy is not one of "per-layer" or "global"</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>deel/lipdp/model.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">dp_layers</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="n">dp_parameters</span><span class="p">:</span> <span class="n">DPParameters</span><span class="p">,</span>
+    <span class="n">dataset_metadata</span><span class="p">:</span> <span class="n">DatasetMetadata</span><span class="p">,</span>
+    <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Model Class based on the DEEL Sequential model. Only layer from the lipdp.layers module are allowed since</span>
+<span class="sd">    the framework assume 1 lipschitz layers.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dp_layers: the list of layers to use ( as done in sequential ) but here we can leverage</span>
+<span class="sd">            the fact that layers may have multiple inputs/outputs.</span>
+<span class="sd">        dp_parameters (DPParameters): parameters used to set the dp procedure.</span>
+<span class="sd">        dataset_metadata (DatasetMetadata): information about the dataset. Must contain: the input shape, number</span>
+<span class="sd">            of training samples, the input bound, number of batches in the dataset and the batch size.</span>
+<span class="sd">        debug (bool, optional): when true print additionnal debug informations (must be in eager mode). Defaults to False.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        The model is then calibrated to verify (epsilon,delta)-DP guarantees by noisying the values of the gradients during the training step.</span>
+<span class="sd">        DP accounting is done with the associated Callback.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        TypeError: when the dp_parameters.noisify_strategy is not one of &quot;per-layer&quot; or &quot;global&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">dp_layers</span> <span class="o">=</span> <span class="n">dp_layers</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">dp_parameters</span> <span class="o">=</span> <span class="n">dp_parameters</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">dataset_metadata</span> <span class="o">=</span> <span class="n">dataset_metadata</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="n">debug</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">noisify_strategy</span> <span class="o">==</span> <span class="s2">&quot;global&quot;</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noisify_fun</span> <span class="o">=</span> <span class="n">global_noisify</span>
+    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">noisify_strategy</span> <span class="o">==</span> <span class="s2">&quot;per-layer&quot;</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noisify_fun</span> <span class="o">=</span> <span class="n">local_noisify</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="s2">&quot;Incorrect noisify_strategy argument during model initialisation.&quot;</span>
+        <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="deel.lipdp.model.DP_Model.signal_to_noise_average" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">signal_to_noise_average</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code>
+
+<a href="#deel.lipdp.model.DP_Model.signal_to_noise_average" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Compute the signal to noise ratio of the model.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>data</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>a tuple (x,y) of a batch of data. The batch size must be equal to the one of the dataset.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>ratios</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>dictionary of signal to noise ratios. Keys are trainable variables names.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+<td><code>norms</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>dictionary of gradient norms. Keys are trainable variables names.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+<td><code>bounds</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>dictionary of gradient norm bounds. Keys are trainable variables names.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>deel/lipdp/model.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">473</span>
+<span class="normal">474</span>
+<span class="normal">475</span>
+<span class="normal">476</span>
+<span class="normal">477</span>
+<span class="normal">478</span>
+<span class="normal">479</span>
+<span class="normal">480</span>
+<span class="normal">481</span>
+<span class="normal">482</span>
+<span class="normal">483</span>
+<span class="normal">484</span>
+<span class="normal">485</span>
+<span class="normal">486</span>
+<span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span>
+<span class="normal">498</span>
+<span class="normal">499</span>
+<span class="normal">500</span>
+<span class="normal">501</span>
+<span class="normal">502</span>
+<span class="normal">503</span>
+<span class="normal">504</span>
+<span class="normal">505</span>
+<span class="normal">506</span>
+<span class="normal">507</span>
+<span class="normal">508</span>
+<span class="normal">509</span>
+<span class="normal">510</span>
+<span class="normal">511</span>
+<span class="normal">512</span>
+<span class="normal">513</span>
+<span class="normal">514</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">signal_to_noise_average</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the signal to noise ratio of the model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data: a tuple (x,y) of a batch of data. The batch size must be equal to the one of the dataset.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ratios: dictionary of signal to noise ratios. Keys are trainable variables names.</span>
+<span class="sd">        norms: dictionary of gradient norms. Keys are trainable variables names.</span>
+<span class="sd">        bounds: dictionary of gradient norm bounds. Keys are trainable variables names.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span>
+
+    <span class="k">assert</span> <span class="p">(</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset_metadata</span><span class="o">.</span><span class="n">batch_size</span>
+    <span class="p">),</span> <span class="s2">&quot;Batch size must be equal to the one of the dataset&quot;</span>
+
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Forward pass</span>
+        <span class="c1"># tf.cast(y_pred,dtype=y.dtype)</span>
+        <span class="c1"># Compute the loss value</span>
+        <span class="c1"># (the loss function is configured in `compile()`)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compiled_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">regularization_losses</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">losses</span><span class="p">)</span>
+
+    <span class="c1"># Compute gradients</span>
+    <span class="n">trainable_vars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainable_variables</span>
+    <span class="n">gradients</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">)</span>
+
+    <span class="c1"># gradient norms</span>
+    <span class="n">norms</span> <span class="o">=</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">gradients</span><span class="p">]</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainable_vars</span><span class="p">]</span>
+    <span class="n">norms</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">norm</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">norm</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">norms</span><span class="p">)}</span>
+
+    <span class="c1"># Get gradient bounds</span>
+    <span class="n">bounds</span> <span class="o">=</span> <span class="n">compute_gradient_bounds</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset_metadata</span><span class="o">.</span><span class="n">batch_size</span>
+    <span class="n">bounds</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="p">(</span><span class="n">bound</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">bound</span> <span class="ow">in</span> <span class="n">bounds</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+    <span class="n">ratios</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+        <span class="n">ratios</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">norms</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">/</span> <span class="n">bounds</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">ratios</span><span class="p">,</span> <span class="n">norms</span><span class="p">,</span> <span class="n">bounds</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="deel.lipdp.model.DP_Model.signal_to_noise_elementwise" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">signal_to_noise_elementwise</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code>
+
+<a href="#deel.lipdp.model.DP_Model.signal_to_noise_elementwise" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Compute the signal to noise ratio of the model.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>data</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>a tuple (x,y) of a batch of data.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>ratios</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>dictionary of signal to noise ratios. Keys are trainable variables names.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+<td><code>norms</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>dictionary of gradient norms. Keys are trainable variables names.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+<td><code>bounds</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>dictionary of gradient norm bounds. Keys are trainable variables names.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>deel/lipdp/model.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span>
+<span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span>
+<span class="normal">454</span>
+<span class="normal">455</span>
+<span class="normal">456</span>
+<span class="normal">457</span>
+<span class="normal">458</span>
+<span class="normal">459</span>
+<span class="normal">460</span>
+<span class="normal">461</span>
+<span class="normal">462</span>
+<span class="normal">463</span>
+<span class="normal">464</span>
+<span class="normal">465</span>
+<span class="normal">466</span>
+<span class="normal">467</span>
+<span class="normal">468</span>
+<span class="normal">469</span>
+<span class="normal">470</span>
+<span class="normal">471</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">signal_to_noise_elementwise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the signal to noise ratio of the model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data: a tuple (x,y) of a batch of data.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ratios: dictionary of signal to noise ratios. Keys are trainable variables names.</span>
+<span class="sd">        norms: dictionary of gradient norms. Keys are trainable variables names.</span>
+<span class="sd">        bounds: dictionary of gradient norm bounds. Keys are trainable variables names.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">tqdm</span>
+
+    <span class="n">examples</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span>
+
+    <span class="n">trainable_vars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainable_variables</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainable_vars</span><span class="p">]</span>
+
+    <span class="n">bounds</span> <span class="o">=</span> <span class="n">compute_gradient_bounds</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset_metadata</span><span class="o">.</span><span class="n">batch_size</span>
+    <span class="n">bounds</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">bound</span> <span class="o">*</span> <span class="n">batch_size</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">bound</span> <span class="ow">in</span> <span class="n">bounds</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+    <span class="n">norms</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">}</span>
+    <span class="n">ratios</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">}</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">examples</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">examples</span><span class="p">,</span> <span class="n">labels</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="n">total</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compiled_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">regularization_losses</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">losses</span><span class="p">)</span>
+
+        <span class="n">gradient_element</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">)</span>
+        <span class="n">norms_element</span> <span class="o">=</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">gradient_element</span><span class="p">]</span>
+        <span class="n">norms_element</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">norm</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">norm</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">norms_element</span><span class="p">)}</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="n">norms</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">norms_element</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+
+        <span class="n">ratios_element</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="n">ratios_element</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">norms_element</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">/</span> <span class="n">bounds</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="n">ratios</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ratios_element</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+
+    <span class="n">ratios</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="n">name</span><span class="p">])</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">}</span>
+    <span class="n">norms</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">norms</span><span class="p">[</span><span class="n">name</span><span class="p">])</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">ratios</span><span class="p">,</span> <span class="n">norms</span><span class="p">,</span> <span class="n">bounds</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="deel.lipdp.model.DP_Model.train_step" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">train_step</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code>
+
+<a href="#deel.lipdp.model.DP_Model.train_step" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Train step of the model with DP guarantees.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>data</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>a tuple (x,y) of a batch of data.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>metrics</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>dictionary of metrics.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>deel/lipdp/model.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">517</span>
+<span class="normal">518</span>
+<span class="normal">519</span>
+<span class="normal">520</span>
+<span class="normal">521</span>
+<span class="normal">522</span>
+<span class="normal">523</span>
+<span class="normal">524</span>
+<span class="normal">525</span>
+<span class="normal">526</span>
+<span class="normal">527</span>
+<span class="normal">528</span>
+<span class="normal">529</span>
+<span class="normal">530</span>
+<span class="normal">531</span>
+<span class="normal">532</span>
+<span class="normal">533</span>
+<span class="normal">534</span>
+<span class="normal">535</span>
+<span class="normal">536</span>
+<span class="normal">537</span>
+<span class="normal">538</span>
+<span class="normal">539</span>
+<span class="normal">540</span>
+<span class="normal">541</span>
+<span class="normal">542</span>
+<span class="normal">543</span>
+<span class="normal">544</span>
+<span class="normal">545</span>
+<span class="normal">546</span>
+<span class="normal">547</span>
+<span class="normal">548</span>
+<span class="normal">549</span>
+<span class="normal">550</span>
+<span class="normal">551</span>
+<span class="normal">552</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">train_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Train step of the model with DP guarantees.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data: a tuple (x,y) of a batch of data.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        metrics: dictionary of metrics.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Unpack data</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span>
+
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Forward pass</span>
+        <span class="c1"># tf.cast(y_pred,dtype=y.dtype)</span>
+        <span class="c1"># Compute the loss value</span>
+        <span class="c1"># (the loss function is configured in `compile()`)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compiled_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">regularization_losses</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">losses</span><span class="p">)</span>
+
+    <span class="c1"># Compute gradients</span>
+    <span class="n">trainable_vars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainable_variables</span>
+    <span class="n">gradients</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">)</span>
+    <span class="c1"># Get gradient bounds</span>
+    <span class="n">gradient_bounds</span> <span class="o">=</span> <span class="n">compute_gradient_bounds</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">noisy_gradients</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">noisify_fun</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">gradient_bounds</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">,</span> <span class="n">gradients</span>
+    <span class="p">)</span>
+    <span class="c1"># Each optimizer is a postprocessing of private gradients</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">apply_gradients</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">noisy_gradients</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">))</span>
+
+    <span class="c1"># Update Metrics</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">compiled_metrics</span><span class="o">.</span><span class="n">update_state</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+    <span class="c1"># Condense to ensure Lipschitz constraints |W|_2 = 1</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">condense</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">m</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">m</span><span class="o">.</span><span class="n">result</span><span class="p">()</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="deel.lipdp.model.DP_Sequential" class="doc doc-heading">
+          <code>DP_Sequential</code>
+
+
+<a href="#deel.lipdp.model.DP_Sequential" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="deel.lip.model.Sequential">Sequential</span></code></p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>deel/lipdp/model.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DP_Sequential</span><span class="p">(</span><span class="n">deel</span><span class="o">.</span><span class="n">lip</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">Sequential</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+        <span class="n">dp_parameters</span><span class="p">:</span> <span class="n">DPParameters</span><span class="p">,</span>
+        <span class="n">dataset_metadata</span><span class="p">:</span> <span class="n">DatasetMetadata</span><span class="p">,</span>
+        <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Model Class based on the DEEL Sequential model. Only layer from the lipdp.layers module are allowed since</span>
+<span class="sd">        the framework assume 1 lipschitz layers.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dp_parameters (DPParameters): parameters used to set the dp procedure.</span>
+<span class="sd">            dataset_metadata (DatasetMetadata): information about the dataset. Must contain: the input shape, number</span>
+<span class="sd">                of training samples, the input bound, number of batches in the dataset and the batch size.</span>
+<span class="sd">            debug (bool, optional): when true print additionnal debug informations (must be in eager mode). Defaults to False.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            The model is then calibrated to verify (epsilon,delta)-DP guarantees by noisying the values of the gradients during the training step.</span>
+<span class="sd">            DP accounting is done with the associated Callback.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: when the dp_parameters.noisify_strategy is not one of &quot;per-layer&quot; or &quot;global&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dp_parameters</span> <span class="o">=</span> <span class="n">dp_parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_metadata</span> <span class="o">=</span> <span class="n">dataset_metadata</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="n">debug</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">noisify_strategy</span> <span class="o">==</span> <span class="s2">&quot;global&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">noisify_fun</span> <span class="o">=</span> <span class="n">global_noisify</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">noisify_strategy</span> <span class="o">==</span> <span class="s2">&quot;per-layer&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">noisify_fun</span> <span class="o">=</span> <span class="n">local_noisify</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Incorrect noisify_strategy argument during model initialisation.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">layers_forward_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span>
+
+    <span class="k">def</span> <span class="nf">layers_backward_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Define the differentially private training step</span>
+    <span class="k">def</span> <span class="nf">train_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="c1"># Unpack data</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span>
+
+        <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Forward pass</span>
+            <span class="c1"># tf.cast(y_pred,dtype=y.dtype)</span>
+            <span class="c1"># Compute the loss value</span>
+            <span class="c1"># (the loss function is configured in `compile()`)</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compiled_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">regularization_losses</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">losses</span><span class="p">)</span>
+
+        <span class="c1"># Compute gradients</span>
+        <span class="n">trainable_vars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainable_variables</span>
+        <span class="n">gradients</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">)</span>
+        <span class="c1"># Get gradient bounds</span>
+        <span class="n">gradient_bounds</span> <span class="o">=</span> <span class="n">compute_gradient_bounds</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">noisy_gradients</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">noisify_fun</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">gradient_bounds</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">,</span> <span class="n">gradients</span>
+        <span class="p">)</span>
+        <span class="c1"># Each optimizer is a postprocessing of the already (epsilon,delta)-DP gradients</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">apply_gradients</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">noisy_gradients</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">))</span>
+        <span class="c1"># self.optimizer.apply_gradients(zip(gradients, trainable_vars))</span>
+        <span class="c1"># Update Metrics</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compiled_metrics</span><span class="o">.</span><span class="n">update_state</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+        <span class="c1"># Condense to verify |W|_2 = 1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condense</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">m</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">m</span><span class="o">.</span><span class="n">result</span><span class="p">()</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="deel.lipdp.model.DP_Sequential.__init__" class="doc doc-heading">
+          <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">dp_parameters</span><span class="p">,</span> <span class="n">dataset_metadata</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+<a href="#deel.lipdp.model.DP_Sequential.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Model Class based on the DEEL Sequential model. Only layer from the lipdp.layers module are allowed since
+the framework assume 1 lipschitz layers.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>dp_parameters</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="deel.lipdp.model.DPParameters" href="#deel.lipdp.model.DPParameters">DPParameters</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>parameters used to set the dp procedure.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>dataset_metadata</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="deel.lipdp.pipeline.DatasetMetadata" href="../pipeline/#deel.lipdp.pipeline.DatasetMetadata">DatasetMetadata</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>information about the dataset. Must contain: the input shape, number
+of training samples, the input bound, number of batches in the dataset and the batch size.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>debug</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>when true print additionnal debug informations (must be in eager mode). Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<details class="note" open>
+  <summary>Note</summary>
+  <p>The model is then calibrated to verify (epsilon,delta)-DP guarantees by noisying the values of the gradients during the training step.
+DP accounting is done with the associated Callback.</p>
+</details>
+
+
+  <p><strong>Raises:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>TypeError</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>when the dp_parameters.noisify_strategy is not one of "per-layer" or "global"</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>deel/lipdp/model.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="n">dp_parameters</span><span class="p">:</span> <span class="n">DPParameters</span><span class="p">,</span>
+    <span class="n">dataset_metadata</span><span class="p">:</span> <span class="n">DatasetMetadata</span><span class="p">,</span>
+    <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Model Class based on the DEEL Sequential model. Only layer from the lipdp.layers module are allowed since</span>
+<span class="sd">    the framework assume 1 lipschitz layers.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dp_parameters (DPParameters): parameters used to set the dp procedure.</span>
+<span class="sd">        dataset_metadata (DatasetMetadata): information about the dataset. Must contain: the input shape, number</span>
+<span class="sd">            of training samples, the input bound, number of batches in the dataset and the batch size.</span>
+<span class="sd">        debug (bool, optional): when true print additionnal debug informations (must be in eager mode). Defaults to False.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        The model is then calibrated to verify (epsilon,delta)-DP guarantees by noisying the values of the gradients during the training step.</span>
+<span class="sd">        DP accounting is done with the associated Callback.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        TypeError: when the dp_parameters.noisify_strategy is not one of &quot;per-layer&quot; or &quot;global&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">dp_parameters</span> <span class="o">=</span> <span class="n">dp_parameters</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">dataset_metadata</span> <span class="o">=</span> <span class="n">dataset_metadata</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="n">debug</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">noisify_strategy</span> <span class="o">==</span> <span class="s2">&quot;global&quot;</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noisify_fun</span> <span class="o">=</span> <span class="n">global_noisify</span>
+    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">noisify_strategy</span> <span class="o">==</span> <span class="s2">&quot;per-layer&quot;</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noisify_fun</span> <span class="o">=</span> <span class="n">local_noisify</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="s2">&quot;Incorrect noisify_strategy argument during model initialisation.&quot;</span>
+        <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="deel.lipdp.model.compute_gradient_bounds" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">compute_gradient_bounds</span><span class="p">(</span><span class="n">model</span><span class="p">)</span></code>
+
+<a href="#deel.lipdp.model.compute_gradient_bounds" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Compute the gradient norm bounds of the model.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>model</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>model to train.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>gradient_bounds</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>dictionary of gradient norm bounds with (key, value) pairs (layer_name, gradient_bound).
+             The order of the bounds is the same as
+             the order of the layers returned by model.layers_backward_order().</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>deel/lipdp/model.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">compute_gradient_bounds</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the gradient norm bounds of the model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        model: model to train.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        gradient_bounds: dictionary of gradient norm bounds with (key, value) pairs (layer_name, gradient_bound).</span>
+<span class="sd">                         The order of the bounds is the same as</span>
+<span class="sd">                         the order of the layers returned by model.layers_backward_order().</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Initialisation, get lipschitz constant of loss</span>
+    <span class="n">input_bounds</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">gradient_bounds</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">input_bound</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Unknown at the start.</span>
+
+    <span class="c1"># Forward pass to assess maximum activation norms</span>
+    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers_forward_order</span><span class="p">():</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">DPLayer</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Layer </span><span class="si">{</span><span class="n">layer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> input bound: </span><span class="si">{</span><span class="n">input_bound</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">input_bounds</span><span class="p">[</span><span class="n">layer</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">input_bound</span>
+        <span class="n">input_bound</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">propagate_inputs</span><span class="p">(</span><span class="n">input_bound</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Layer </span><span class="si">{</span><span class="n">layer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> input bound: </span><span class="si">{</span><span class="n">input_bound</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># since we aggregate using SUM_OVER_BATCH</span>
+    <span class="n">gradient_bound</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">get_L</span><span class="p">())</span> <span class="o">/</span> <span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">dataset_metadata</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Backward pass to compute gradient norm bounds and accumulate Lip constant</span>
+    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers_backward_order</span><span class="p">():</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">DPLayer</span><span class="p">)</span>
+        <span class="n">layer_input_bound</span> <span class="o">=</span> <span class="n">input_bounds</span><span class="p">[</span><span class="n">layer</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">layer</span><span class="o">.</span><span class="n">has_parameters</span><span class="p">():</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+            <span class="n">var_name</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">gradient_bounds</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">backpropagate_params</span><span class="p">(</span>
+                <span class="n">layer_input_bound</span><span class="p">,</span> <span class="n">gradient_bound</span>
+            <span class="p">)</span>
+        <span class="n">gradient_bound</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">backpropagate_inputs</span><span class="p">(</span><span class="n">layer_input_bound</span><span class="p">,</span> <span class="n">gradient_bound</span><span class="p">)</span>
+
+    <span class="c1"># Return gradient bounds</span>
+    <span class="k">return</span> <span class="n">gradient_bounds</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="deel.lipdp.model.get_eps_delta" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">get_eps_delta</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">epochs</span><span class="p">)</span></code>
+
+<a href="#deel.lipdp.model.get_eps_delta" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Compute the (epsilon, delta)-DP guarantees of the model.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>model</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>model to train.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>epochs</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>number of epochs elapsed.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>epsilon</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>epsilon parameter of the (epsilon, delta)-DP guarantee.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+<td><code>delta</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>delta parameter of the (epsilon, delta)-DP guarantee.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>deel/lipdp/model.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_eps_delta</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">epochs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the (epsilon, delta)-DP guarantees of the model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        model: model to train.</span>
+<span class="sd">        epochs: number of epochs elapsed.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        epsilon: epsilon parameter of the (epsilon, delta)-DP guarantee.</span>
+<span class="sd">        delta: delta parameter of the (epsilon, delta)-DP guarantee.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">num_grad_steps</span> <span class="o">=</span> <span class="n">epochs</span> <span class="o">*</span> <span class="n">model</span><span class="o">.</span><span class="n">dataset_metadata</span><span class="o">.</span><span class="n">nb_steps_per_epochs</span>
+
+    <span class="n">prob</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">dataset_metadata</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">/</span> <span class="n">model</span><span class="o">.</span><span class="n">dataset_metadata</span><span class="o">.</span><span class="n">nb_samples_train</span>
+
+    <span class="c1"># Dynamic clipping might be used.</span>
+    <span class="n">last_layer</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">layers_backward_order</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">dynamic_clipping</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;fixed&quot;</span><span class="p">}</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">last_layer</span><span class="p">,</span> <span class="n">deel</span><span class="o">.</span><span class="n">lipdp</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">DP_ClipGradient</span><span class="p">):</span>
+        <span class="n">dynamic_clipping</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">last_layer</span><span class="o">.</span><span class="n">_dynamic_dp_dict</span><span class="p">)</span>  <span class="c1"># copy dict</span>
+        <span class="k">if</span> <span class="s2">&quot;patience&quot;</span> <span class="ow">in</span> <span class="n">dynamic_clipping</span><span class="p">:</span>
+            <span class="n">dynamic_clipping</span><span class="p">[</span><span class="s2">&quot;num_updates&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">epochs</span> <span class="o">//</span> <span class="n">dynamic_clipping</span><span class="p">[</span><span class="s2">&quot;patience&quot;</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">noisify_strategy</span> <span class="o">==</span> <span class="s2">&quot;per-layer&quot;</span><span class="p">:</span>
+        <span class="n">nm_coefs</span> <span class="o">=</span> <span class="n">get_noise_multiplier_coefs</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+        <span class="n">noise_multipliers</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">noise_multiplier</span> <span class="o">*</span> <span class="n">coef</span> <span class="k">for</span> <span class="n">coef</span> <span class="ow">in</span> <span class="n">nm_coefs</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+        <span class="p">]</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;per-layer&quot;</span>
+    <span class="k">elif</span> <span class="n">model</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">noisify_strategy</span> <span class="o">==</span> <span class="s2">&quot;global&quot;</span><span class="p">:</span>
+        <span class="n">noise_multipliers</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">noise_multiplier</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;global&quot;</span>
+
+    <span class="n">mech</span> <span class="o">=</span> <span class="n">DPGD_Mechanism</span><span class="p">(</span>
+        <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+        <span class="n">prob</span><span class="o">=</span><span class="n">prob</span><span class="p">,</span>
+        <span class="n">noise_multipliers</span><span class="o">=</span><span class="n">noise_multipliers</span><span class="p">,</span>
+        <span class="n">num_grad_steps</span><span class="o">=</span><span class="n">num_grad_steps</span><span class="p">,</span>
+        <span class="n">delta</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">delta</span><span class="p">,</span>
+        <span class="n">dynamic_clipping</span><span class="o">=</span><span class="n">dynamic_clipping</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">mech</span><span class="o">.</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">mech</span><span class="o">.</span><span class="n">delta</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="deel.lipdp.model.get_noise_multiplier_coefs" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">get_noise_multiplier_coefs</span><span class="p">(</span><span class="n">model</span><span class="p">)</span></code>
+
+<a href="#deel.lipdp.model.get_noise_multiplier_coefs" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get the noise multiplier coefficients of the model.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>model</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>model to train.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>dict_coefs</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>dictionary of noise multiplier coefficients.
+        The order of the coefficients is the same as
+        the order of the layers returned by model.layers_forward_order().</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>deel/lipdp/model.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_noise_multiplier_coefs</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the noise multiplier coefficients of the model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        model: model to train.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict_coefs: dictionary of noise multiplier coefficients.</span>
+<span class="sd">                    The order of the coefficients is the same as</span>
+<span class="sd">                    the order of the layers returned by model.layers_forward_order().</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dict_coefs</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="p">(</span>
+        <span class="n">layer</span>
+    <span class="p">)</span> <span class="ow">in</span> <span class="p">(</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">layers_forward_order</span><span class="p">()</span>
+    <span class="p">):</span>  <span class="c1"># remark: insertion order is preserved in Python 3.7+</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">DPLayer</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">layer</span><span class="o">.</span><span class="n">has_parameters</span><span class="p">():</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+            <span class="n">dict_coefs</span><span class="p">[</span><span class="n">layer</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">nm_coef</span>
+    <span class="k">return</span> <span class="n">dict_coefs</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="deel.lipdp.model.global_noisify" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">global_noisify</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">gradient_bounds</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">,</span> <span class="n">gradients</span><span class="p">)</span></code>
+
+<a href="#deel.lipdp.model.global_noisify" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Add noise to gradients.</p>
+
+<details class="remark" open>
+  <summary>a single global noise is added to all gradients, based on the global sensitivity.</summary>
+  <p>This is the default behaviour of the original DPGD algorithm.
+This may yield looser privacy bounds than local noisify.</p>
+</details>
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>model</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>model to train.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>gradient_bounds</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>dictionary of gradient norm upper bounds. The keys are the names of the trainable variables.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>trainable_vars</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>list of trainable variables. The list is in the same order as gradients.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>gradients</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>list of gradients to add noise to. The list is in the same order as trainable_vars.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>noisy_grads</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>list of noisy gradients. The list is in the same order as trainable_vars.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>deel/lipdp/model.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">global_noisify</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">gradient_bounds</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">,</span> <span class="n">gradients</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add noise to gradients.</span>
+
+<span class="sd">    Remark: a single global noise is added to all gradients, based on the global sensitivity.</span>
+<span class="sd">            This is the default behaviour of the original DPGD algorithm.</span>
+<span class="sd">            This may yield looser privacy bounds than local noisify.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        model: model to train.</span>
+<span class="sd">        gradient_bounds: dictionary of gradient norm upper bounds. The keys are the names of the trainable variables.</span>
+<span class="sd">        trainable_vars: list of trainable variables. The list is in the same order as gradients.</span>
+<span class="sd">        gradients: list of gradients to add noise to. The list is in the same order as trainable_vars.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        noisy_grads: list of noisy gradients. The list is in the same order as trainable_vars.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">global_sensitivity</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">([</span><span class="n">bound</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">bound</span> <span class="ow">in</span> <span class="n">gradient_bounds</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+    <span class="p">)</span>
+    <span class="c1"># no factor-2 : use add_remove definition of DP.</span>
+    <span class="n">stddev</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">noise_multiplier</span> <span class="o">*</span> <span class="n">global_sensitivity</span>
+    <span class="n">noises</span> <span class="o">=</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">g</span><span class="p">),</span> <span class="n">stddev</span><span class="o">=</span><span class="n">stddev</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">gradients</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">grad</span><span class="p">,</span> <span class="n">var</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">gradients</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">):</span>
+            <span class="n">upperboundgrad</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">gradient_bounds</span><span class="p">[</span><span class="n">var</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">*</span> <span class="n">model</span><span class="o">.</span><span class="n">dataset_metadata</span><span class="o">.</span><span class="n">batch_size</span>
+            <span class="p">)</span>
+            <span class="n">noise_msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Adding noise of stddev : </span><span class="si">{</span><span class="n">stddev</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; to variable </span><span class="si">{</span><span class="n">var</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; of gradient norm upper bound </span><span class="si">{</span><span class="n">upperboundgrad</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; and effective norm </span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">noise_msg</span><span class="p">)</span>
+    <span class="n">noisy_grads</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span> <span class="o">+</span> <span class="n">n</span> <span class="k">for</span> <span class="n">g</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">gradients</span><span class="p">,</span> <span class="n">noises</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">noisy_grads</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="deel.lipdp.model.local_noisify" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">local_noisify</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">gradient_bounds</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">,</span> <span class="n">gradients</span><span class="p">)</span></code>
+
+<a href="#deel.lipdp.model.local_noisify" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Add noise to gradients of trainable variables.</p>
+<p>Remark: this yields tighter bounds than global_noisify.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>model</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>model to train.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>gradient_bounds</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>dictionary of gradient norm upper bounds. Keys are trainable variables names.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>trainable_vars</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>list of trainable variables. Same order as gradients.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>gradients</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>list of gradients. Same order as trainable_vars.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>list of noisy gradients. Same order as trainable_vars.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>deel/lipdp/model.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">local_noisify</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">gradient_bounds</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">,</span> <span class="n">gradients</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add noise to gradients of trainable variables.</span>
+
+<span class="sd">    Remark: this yields tighter bounds than global_noisify.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        model: model to train.</span>
+<span class="sd">        gradient_bounds: dictionary of gradient norm upper bounds. Keys are trainable variables names.</span>
+<span class="sd">        trainable_vars: list of trainable variables. Same order as gradients.</span>
+<span class="sd">        gradients: list of gradients. Same order as trainable_vars.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of noisy gradients. Same order as trainable_vars.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nm_coefs</span> <span class="o">=</span> <span class="n">get_noise_multiplier_coefs</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="n">noises</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">grad</span><span class="p">,</span> <span class="n">var</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">gradients</span><span class="p">,</span> <span class="n">trainable_vars</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">var</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">gradient_bounds</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="c1"># no factor-2 : use add_remove definition of DP</span>
+            <span class="n">stddev</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">model</span><span class="o">.</span><span class="n">dp_parameters</span><span class="o">.</span><span class="n">noise_multiplier</span>
+                <span class="o">*</span> <span class="n">gradient_bounds</span><span class="p">[</span><span class="n">var</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+                <span class="o">*</span> <span class="n">nm_coefs</span><span class="p">[</span><span class="n">var</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">noises</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">grad</span><span class="p">),</span> <span class="n">stddev</span><span class="o">=</span><span class="n">stddev</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+                <span class="n">upperboundgrad</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">gradient_bounds</span><span class="p">[</span><span class="n">var</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">*</span> <span class="n">model</span><span class="o">.</span><span class="n">dataset_metadata</span><span class="o">.</span><span class="n">batch_size</span>
+                <span class="p">)</span>
+                <span class="n">noise_msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Adding noise of stddev : </span><span class="si">{</span><span class="n">stddev</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot; to variable </span><span class="si">{</span><span class="n">var</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot; of gradient norm upper bound </span><span class="si">{</span><span class="n">upperboundgrad</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot; and effective norm </span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">noise_msg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Variable </span><span class="si">{</span><span class="n">var</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> not in gradient bounds.&quot;</span><span class="p">)</span>
+
+    <span class="n">noisy_grads</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span> <span class="o">+</span> <span class="n">n</span> <span class="k">for</span> <span class="n">g</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">gradients</span><span class="p">,</span> <span class="n">noises</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">noisy_grads</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../js/custom.js"></script>
+      
+    
+  </body>
+</html>
